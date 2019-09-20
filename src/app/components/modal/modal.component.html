@@ -1,0 +1,9 @@
+<ngx-smart-modal #myModal [identifier]="'myModal'">
+    <div *ngIf="!!myModal.getData()">
+        <h2 class="">{{myModal.getData().word | titlecase}}</h2>
+        <p *ngIf="!!myModal.getData().vocabularySize">Vocabulary Size: {{myModal.getData().vocabularySize}}</p>
+        <p *ngIf="!!myModal.getData().frequency">Frequency: {{myModal.getData().frequency}}</p>
+        <p *ngIf="!!myModal.getData().relativeRank">Relative Rank: {{myModal.getData().relativeRank}}</p>
+        <p *ngIf="!!myModal.getData().additionalInformation && !!myModal.getData().additionalInformation.link">Learn More: {{myModal.getData().additionalInformation.link}}</p>
+    </div>
+</ngx-smart-modal>

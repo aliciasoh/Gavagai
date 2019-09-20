@@ -1,0 +1,44 @@
+<div [ngClass]="{'night': isNight}" class="search-container">
+    <div class="search-holder">
+        <form [formGroup]="searchForm">
+            <input type="text" formControlName="word" placeholder=" :)">
+            <div class="dropdown">
+                <select formControlName="lang">
+                    <option value="en">English</option>
+                    <option value="sv">Swedish</option>
+                    <option value="nl">Dutch</option>
+                </select>
+                <i class="fas fa-angle-down"></i>
+            </div>
+
+            <button (click)="getListOfWords()" mdbBtn type="button" gradient="blue" rounded="true"
+                mdbWavesEffect>Search</button>
+        </form>
+    </div>
+    <div [ngClass]="{'night': isNight}" class="fade-container"></div>
+</div>
+
+<div [ngClass]="{'night': isNight}" class="answer-container">
+    <div *ngIf="response; else noResponse">
+        <h2>Here are your results:</h2>
+        <p *ngIf="!!response.wordInformation.word">Word you have searched: {{response.wordInformation.word}}</p>
+        <p *ngIf="!!response.wordInformation.vocabularySize">Vocabulary Size:
+            {{response.wordInformation.vocabularySize}}</p>
+        <p *ngIf="!!response.wordInformation.frequency">Frequency: {{response.wordInformation.frequency}}</p>
+        <p
+            *ngIf="!!response.wordInformation.additionalInformation && !!response.wordInformation.additionalInformation.link">
+            Learn More: <a
+                href="{{response.wordInformation.additionalInformation.link}}">{{response.wordInformation.additionalInformation.link}}</a>
+        </p>
+
+        <div class="results-container" *ngFor="let eachWord of response.semanticallySimilarWords"
+            (click)="viewMore(eachWord)">
+            <p [ngClass]="{'night': isNight}">{{eachWord.word}}
+                <i class="far fa-eye"></i>
+            </p>
+        </div>
+    </div>
+    <ng-template #noResponse>
+        <h2>Hi there amazing person!</h2>
+    </ng-template>
+</div>

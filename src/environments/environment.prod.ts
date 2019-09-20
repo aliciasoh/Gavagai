@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseURL: "https://api.gavagai.se/v3",
+  apiKey: "8c79736f393ab6eff4a864fcfa23344c"
 };
