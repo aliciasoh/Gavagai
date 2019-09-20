@@ -28,6 +28,13 @@ form{
     width: 100%;
     align-items: center;
     justify-content: center;
+    @media only screen and (max-width: 600px) {
+        display: grid;
+        select{
+            background-color: white!important;
+            width: 95%;
+        }
+    }
     input{
         margin: .375rem;
         border: 0;
