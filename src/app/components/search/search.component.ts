@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
     public modalComponent: ModalComponent,
     private loadingService: LoadingService
     ) {
-      this.isNight = (new Date()).getHours() >= 6 && (new Date()).getHours() <= 17 ? true : true;
+      this.isNight = (new Date()).getHours() >= 6 && (new Date()).getHours() <= 17 ? false : true;
    }
 
   ngOnInit() {
